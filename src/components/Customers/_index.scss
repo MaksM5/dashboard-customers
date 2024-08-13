@@ -1,0 +1,60 @@
+.customers {
+  position: relative;
+  padding: 3rem 4.4rem 4rem 3.8rem;
+  background-color: $white;
+  box-shadow: 0 1rem 6rem rgba(226, 236, 249, 0.5);
+  border-radius: 3rem;
+  @include v-lg {
+    padding: 2rem;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include v-xs {
+      flex-direction: column;
+      align-items: center;
+      gap: 3.2rem;
+    }
+  }
+
+  &__header-title {
+    margin: 0;
+    color: $black;
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: -0.022rem;
+    @include v-xs {
+      text-align: center;
+    }
+  }
+
+  &__header-subtitle {
+    margin: 0.7rem 0 0;
+    color: $green-3;
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: -0.014rem;
+    @include v-xs {
+      text-align: center;
+    }
+  }
+
+  &__footer {
+    margin-top: 1.7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include v-sm {
+      flex-direction: column;
+    }
+  }
+
+  &__footer-text {
+    color: $gray-3;
+    @include v-xs {
+      text-align: center;
+    }
+  }
+}

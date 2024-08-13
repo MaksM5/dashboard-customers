@@ -1,0 +1,12 @@
+div.customers
+  header.customers__header
+    div.customers__header-wrapper
+      h2.customers__header-title All Customers
+      p.customers__header-subtitle Active Members
+    include ../Search/index.pug
+
+  include ../Table/index.pug
+
+  div.customers__footer
+    p.customers__footer-text Showing data 1 to 8 of 256K entries
+    include ../Pagination/index.pug

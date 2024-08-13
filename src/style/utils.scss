@@ -1,0 +1,12 @@
+@import "./variables";
+@import "./mixins";
+@import "./normalize";
+
+@import "../components/BurgerButton/index";
+@import "../components/Customers/index";
+@import "../components/Table/index";
+@import "../components/Search/index";
+@import "../components/EmptyContent/index";
+@import "../components/Sidebar/index";
+@import "../components/Content/index";
+@import "../components/Pagination/index";
