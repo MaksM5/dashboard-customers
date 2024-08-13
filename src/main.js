@@ -61,29 +61,33 @@ const clearSelectedPaginationStatus = async () => {
   });
 };
 
-prevArrow.addEventListener("click", () => {
-  if (selectedItemPag) {
-    const currentIndex =
-      Array.from(paginationNavItems).indexOf(selectedItemPag);
-    if (currentIndex > 0) {
-      selectedItemPag.classList.remove("customers__pagination-btn--selected");
-      selectedItemPag = paginationNavItems[currentIndex - 1];
-      selectedItemPag.classList.add("customers__pagination-btn--selected");
+if (prevArrow) {
+  prevArrow.addEventListener("click", () => {
+    if (selectedItemPag) {
+      const currentIndex =
+        Array.from(paginationNavItems).indexOf(selectedItemPag);
+      if (currentIndex > 0) {
+        selectedItemPag.classList.remove("customers__pagination-btn--selected");
+        selectedItemPag = paginationNavItems[currentIndex - 1];
+        selectedItemPag.classList.add("customers__pagination-btn--selected");
+      }
     }
-  }
-});
+  });
+}
 
-nextArrow.addEventListener("click", () => {
-  if (selectedItemPag) {
-    const currentIndex =
-      Array.from(paginationNavItems).indexOf(selectedItemPag);
-    if (currentIndex < paginationNavItems.length - 1) {
-      selectedItemPag.classList.remove("customers__pagination-btn--selected");
-      selectedItemPag = paginationNavItems[currentIndex + 1];
-      selectedItemPag.classList.add("customers__pagination-btn--selected");
+if (nextArrow) {
+  nextArrow.addEventListener("click", () => {
+    if (selectedItemPag) {
+      const currentIndex =
+        Array.from(paginationNavItems).indexOf(selectedItemPag);
+      if (currentIndex < paginationNavItems.length - 1) {
+        selectedItemPag.classList.remove("customers__pagination-btn--selected");
+        selectedItemPag = paginationNavItems[currentIndex + 1];
+        selectedItemPag.classList.add("customers__pagination-btn--selected");
+      }
     }
-  }
-});
+  });
+}
 
 const openSideBar = () => {
   sidebarStatus = true;
@@ -97,36 +101,44 @@ const closeSidebar = () => {
   sidebar.classList.remove("sidebar--open");
 };
 
-sidebarNavItems.forEach((item) => {
-  item.addEventListener("click", () => {
-    clearSelectedSidebarStatus();
-    closeSidebar();
-    item.classList.add("sidebar__nav-item--selected");
+if (sidebarNavItems) {
+  sidebarNavItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      clearSelectedSidebarStatus();
+      closeSidebar();
+      item.classList.add("sidebar__nav-item--selected");
+    });
   });
-});
+}
 
-paginationNavItems.forEach((item) => {
-  item.addEventListener("click", () => {
-    clearSelectedPaginationStatus();
-    item.classList.add("customers__pagination-btn--selected");
+if (paginationNavItems) {
+  paginationNavItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      clearSelectedPaginationStatus();
+      item.classList.add("customers__pagination-btn--selected");
+    });
   });
-});
+}
 
-burgerBtn.addEventListener("click", () => {
-  sidebarStatus ? closeSidebar() : openSideBar();
-});
+if (burgerBtn) {
+  burgerBtn.addEventListener("click", () => {
+    sidebarStatus ? closeSidebar() : openSideBar();
+  });
+}
 
-searchInput.addEventListener("input", (event) => {
-  const searchValue = event.target.value.toLowerCase();
+if (searchInput) {
+  searchInput.addEventListener("input", (event) => {
+    const searchValue = event.target.value.toLowerCase();
 
-  Array.from(tableBody.children || []).forEach((child) => {
-    if (child.classList.contains("table__row-body")) {
-      const rowText = child.textContent.toLowerCase();
-      if (rowText.includes(searchValue)) {
-        child.style.display = "";
-      } else {
-        child.style.display = "none";
+    Array.from(tableBody.children || []).forEach((child) => {
+      if (child.classList.contains("table__row-body")) {
+        const rowText = child.textContent.toLowerCase();
+        if (rowText.includes(searchValue)) {
+          child.style.display = "";
+        } else {
+          child.style.display = "none";
+        }
       }
-    }
+    });
   });
-});
+}
